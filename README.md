@@ -1,4 +1,4 @@
-The purpose of this project is to learn various generation algorithms, and possibly some path finding algorithms such as _a*_ a
+The purpose of this project is to learn various generation algorithms, and possibly some path finding algorithms such as _a*_ 
 
 ---
 ## Goals
