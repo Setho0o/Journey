@@ -18,4 +18,4 @@ Forest / land area
 add tile scaling support must be 16x16\
 get more asset images\
 start on wfc\
-add ids to cells and draw the corresponding assest\
+add ids to cells and draw the corresponding asset
