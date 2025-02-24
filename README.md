@@ -2,13 +2,13 @@ The purpose of this project is to learn various generation algorithms, and possi
 
 ---
 ## Goals
-  *Algorithms*
-	 Wave function collapse
-	 A*
-	 Poison disk sampling
-  *Maps / generation*
-	 Dungeon 
-	 Forest / land area
+*Algorithms*
+  Wave function collapse
+  A*
+  Poison disk sampling
+*Maps / generation*
+  Dungeon 
+  Forest / land area
 	 
 #### Tasks
 
