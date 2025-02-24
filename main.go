@@ -1,6 +1,7 @@
 package main
 
 import (
+	"image/color"
 	"log"
 	"os"
 
@@ -10,10 +11,11 @@ import (
 )
 
 const (
-  Lx = Wx / 4 // useable pixels 
-  Ly = Wy / 4
+  Lx = Wx // useable pixels 
+  Ly = Wy
   Wx = 1920 // window sizw
   Wy = 1080
+  TileSize = 16 
 )
 
 
@@ -21,6 +23,7 @@ type Game struct{
   s *ebiten.Image
   gen gen.Generator
   f f.Finder
+  m Matrix
 }
 
 
@@ -31,6 +34,13 @@ func (g *Game) Update() error {
 
 func (g *Game) Draw(screen *ebiten.Image) {
   g.s = screen
+
+  for _,e := range g.m {
+    for _,e := range e {
+      g.s.Set(e.x,e.y,color.White)
+    }
+  
+  }
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
@@ -48,6 +58,7 @@ func main() {
 
 func GameInit() *Game {
   return &Game{
+    m: MatrixInit(),
   }
 }
 
