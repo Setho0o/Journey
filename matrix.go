@@ -2,6 +2,7 @@ package main
 
 import (
 	"image"
+	"image/color"
 	"math/rand"
 
 	a "github.com/Setho0o/Journey/assets"
@@ -12,7 +13,7 @@ import (
 type Matrix [][]*Cell
 
 func MatrixInit() Matrix {
-	m := make(Matrix, u.Ly/u.TileSize)
+	m := make(Matrix, u.Ly/u.TileSize+1)
 	for i := range m {
 		m[i] = make([]*Cell, u.Lx/u.TileSize)
 	}
@@ -46,6 +47,7 @@ func (g *Game) DrawMatrix() {
 	for _, e := range g.m {
 		for _, c := range e {
 			g.s.DrawImage(g.a[c.id], c.op)
+			g.s.Set(c.x, c.y, color.Black)
 		}
 	}
 }

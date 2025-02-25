@@ -45,24 +45,13 @@ const (
 	BushC
 )
 
-<<<<<<< Updated upstream
-func AssetInit() map[Id]*ebiten.Image{
-  return map[Id]*ebiten.Image {
-    LandM : DecodePng("assets/land.png"), // gonna need to organize and name the files better this was just for a test
-    GrassA : DecodePng("assets/grassA.png"),
-    BushA : DecodePng("assets/BushA.png"),
-    BushB : DecodePng("assets/BushB.png"),
-  }
-}
-=======
 var (
 	WaterHex = []string{
 		"00bfff",
 		"",
-		"",
+		"ffffff",
 	}
 )
->>>>>>> Stashed changes
 
 func AssetInit() map[Id]*ebiten.Image {
 	return map[Id]*ebiten.Image{
@@ -72,6 +61,8 @@ func AssetInit() map[Id]*ebiten.Image {
 		WaterM1: DecodePng("assets/Water/WaterM1.png"),
 		WaterM2: DecodePng("assets/Water/WaterM2.png"),
 		WaterM3: DecodePng("assets/Water/WaterM3.png"),
+		BushA:   DecodePng("assets/BushA.png"),
+		BushB:   DecodePng("assets/BushB.png"),
 	}
 }
 
