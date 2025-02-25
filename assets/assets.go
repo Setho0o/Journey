@@ -37,6 +37,8 @@ func AssetInit() map[Id]*ebiten.Image{
   return map[Id]*ebiten.Image {
     LandM : DecodePng("assets/land.png"), // gonna need to organize and name the files better this was just for a test
     GrassA : DecodePng("assets/grassA.png"),
+    BushA : DecodePng("assets/BushA.png"),
+    BushB : DecodePng("assets/BushB.png"),
   }
 }
 
