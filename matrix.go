@@ -2,31 +2,32 @@ package main
 
 import (
 	"image"
+	"math/rand"
 
 	a "github.com/Setho0o/Journey/assets"
+	u "github.com/Setho0o/Journey/utils"
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
 type Matrix [][]*Cell
 
 func MatrixInit() Matrix {
-	m := make(Matrix, Ly/TileSize)
+	m := make(Matrix, u.Ly/u.TileSize)
 	for i := range m {
-		m[i] = make([]*Cell, Lx/TileSize)
+		m[i] = make([]*Cell, u.Lx/u.TileSize)
 	}
-    
 	for i, row := range m {
 		for j, _ := range row {
-      x := j * TileSize
-      y := i * TileSize
-      op := &ebiten.DrawImageOptions{}
-      op.GeoM.Translate(float64(x),float64(y))
+			x := j * u.TileSize
+			y := i * u.TileSize
+			op := &ebiten.DrawImageOptions{}
+			op.GeoM.Translate(float64(x), float64(y))
 			m[i][j] = &Cell{
-				x:  x,
-				y:  y,
-				id: a.GrassA,
-        op : op,
-        bounds: image.Rect(x,y,x+TileSize,y+TileSize), // added for easy collison detection image/rect has a lot of useful functions 
+				x:      x,
+				y:      y,
+				id:     a.Blank,
+				op:     op,
+				bounds: image.Rect(x, y, x+u.TileSize, y+u.TileSize), // added for easy collison detection image/rect has a lot of useful functions
 			}
 		}
 	}
@@ -34,17 +35,35 @@ func MatrixInit() Matrix {
 }
 
 type Cell struct {
-	x  int
-	y  int
-  id a.Id
-  op  *ebiten.DrawImageOptions
-  bounds image.Rectangle
+	x      int
+	y      int
+	id     a.Id
+	op     *ebiten.DrawImageOptions
+	bounds image.Rectangle
 }
 
 func (g *Game) DrawMatrix() {
-  for _, e := range g.m {
-    for _, c := range e {
-      g.s.DrawImage(g.a[c.id],c.op)
-    }
-  }
+	for _, e := range g.m {
+		for _, c := range e {
+			g.s.DrawImage(g.a[c.id], c.op)
+		}
+	}
+}
+
+func (g *Game) FillWater() {
+	for _, e := range g.m {
+		for _, c := range e {
+			switch rand.Intn(3) {
+			case 0:
+				c.id = a.WaterM1
+			case 1:
+				c.id = a.WaterM2
+			case 2:
+				c.id = a.WaterM3
+			}
+		}
+	}
+}
+func (g *Game) FillLand() {
+
 }
