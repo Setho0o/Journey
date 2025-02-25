@@ -41,13 +41,27 @@ type Cell struct {
 	id     a.Id
 	op     *ebiten.DrawImageOptions
 	bounds image.Rectangle
+} 
+
+func (g *Game)DrawBounds(color color.Color) {
+  for _, e := range g.m {
+		for _, c := range e {
+		  for i := range c.bounds.Dx() {
+        g.s.Set(c.x + i, c.y, color)
+        g.s.Set(c.x + i, c.y + c.bounds.Dy(), color)
+      }
+      for i := range c.bounds.Dy() {
+        g.s.Set(c.x, c.y + i, color)
+        g.s.Set(c.x + c.bounds.Dx(), c.y + i, color)
+      }
+		}
+	}   
 }
 
 func (g *Game) DrawMatrix() {
 	for _, e := range g.m {
 		for _, c := range e {
 			g.s.DrawImage(g.a[c.id], c.op)
-			g.s.Set(c.x, c.y, color.Black)
 		}
 	}
 }

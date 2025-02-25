@@ -48,7 +48,7 @@ const (
 var (
 	WaterHex = []string{
 		"00bfff",
-		"",
+		"87ceeb",
 		"ffffff",
 	}
 )

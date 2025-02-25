@@ -43,8 +43,6 @@ func main() {
 
 	g.FillWater()
 
-	g.m[u.My][u.Mx].id = a.LandM
-	g.m[0][0].id = a.LandM
 	if err := ebiten.RunGame(g); err != nil {
 		log.Fatal(err)
 	}
