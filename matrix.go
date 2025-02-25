@@ -24,7 +24,7 @@ func MatrixInit() Matrix {
 			m[i][j] = &Cell{
 				x:  x,
 				y:  y,
-				id: a.LandM,
+				id: a.GrassA,
         op : op,
         bounds: image.Rect(x,y,x+TileSize,y+TileSize), // added for easy collison detection image/rect has a lot of useful functions 
 			}
