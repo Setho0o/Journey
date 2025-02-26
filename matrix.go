@@ -83,7 +83,14 @@ func (g *Game) FillWater() {
 func (g *Game) FillLand() {
   for _, e := range g.m {
 		for _, c := range e {
-      c.id = a.LandM1
+			switch rand.Intn(3) {
+			case 0:
+				c.id = a.LandM1
+			case 1:
+				c.id = a.LandM2
+			case 2:
+				c.id = a.LandM3
+			}
 		}
 	}
 }

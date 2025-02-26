@@ -21,10 +21,8 @@ type Id int
 const (
 	Blank Id = iota
 	LandM1
-	LandTL
-	LandTR
-	LandBL
-	LandBR
+	LandM2
+	LandM3
 
 	GrassA
 
@@ -82,8 +80,11 @@ var (
 func AssetInit() map[Id]*ebiten.Image {
 	return map[Id]*ebiten.Image{
 		Blank:   ebiten.NewImage(u.TileSize, u.TileSize),
-		LandM1:   DecodePng("assets/LandM1.png"), // gonna need to organize and name the files better this was just for a test
-		GrassA:  DecodePng("assets/grassA.png"),
+		
+    LandM1:   DecodePng("assets/Land/LandM1.png"), 
+		LandM2:  DecodePng("assets/Land/LandM2.png"),
+		LandM3:  DecodePng("assets/Land/LandM3.png"),
+
 		WaterM1: DecodePng("assets/Water/WaterM1.png"),
 		WaterM2: DecodePng("assets/Water/WaterM2.png"),
 		WaterM3: DecodePng("assets/Water/WaterM3.png"),
