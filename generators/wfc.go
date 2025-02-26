@@ -28,9 +28,9 @@ func (s Stack) Push(i, j int) Stack {
 	return append(s, i, j)
 }
 
-func (s Stack) Pop() (Stack, int, int) {
+func (s Stack) Pop(index int) (int, int) {
 	l := len(s)
-	return s[:l-2], s[l-2], s[l-1]
+	return s[l - index - 1], s[ l - index]
 }
 
 
@@ -40,26 +40,31 @@ type Wfc struct {
   s Stack
 
 }
+
 func (w *Wfc) Wfc(){
   x := rand.IntN(utils.Mx)
   y := rand.IntN(utils.My)
   w.Collapse(w.m[y][x]) 
 
+	var done bool
+	done = false
+	for done == false {
+		x, y, done = w.FindNextCell()
+		w.Collapse(w.m[y][x])
+	}
+
 }
 
 func (w *Wfc) Collapse(c *m.Cell) {
-  
-  w.CheckNeighbors(c)
+	w.s.Push(c.X, c.Y)
 
-  // Figure out which cell have what entropy
-  // add Cells to stack 
-  // Collapse lowest cell 
-  // Update entropy 
+	//set tile
       
 }
 
-func (w *Wfc) CheckNeighbors(c *m.Cell)  {
-  
+func (w *Wfc) FindNextCell() (int, int, bool) {
+
+
 
 }
 
