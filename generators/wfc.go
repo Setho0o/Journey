@@ -45,9 +45,9 @@ func (w *Wfc) Wfc(){
   x := rand.IntN(utils.Mx)
   y := rand.IntN(utils.My)
   w.Collapse(w.m[y][x]) 
+  
+  done := false
 
-	var done bool
-	done = false
 	for done == false {
 		x, y, done = w.FindNextCell()
 		w.Collapse(w.m[y][x])
