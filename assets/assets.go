@@ -72,6 +72,11 @@ var (
 		"87ceeb",
 		"ffffff",
 	}
+
+  LandHex = []string{
+		"30a430",
+    "26ab26",
+	}
 )
 
 func AssetInit() map[Id]*ebiten.Image {
