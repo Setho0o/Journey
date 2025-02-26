@@ -15,7 +15,6 @@ Dungeon\
 Forest / land area
 	 
 ## Tasks
-add tile scaling support must be 16x16\
 get more asset images\
 start on wfc\
-add ids to cells and draw the corresponding asset
+
