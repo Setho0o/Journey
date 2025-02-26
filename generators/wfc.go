@@ -7,7 +7,7 @@ import (
 	"github.com/Setho0o/Journey/utils"
 )
 
-type Stack int
+type Stack []int
 
 type Neighbor int
 
@@ -21,6 +21,18 @@ const (
   B
   BR
 )
+
+
+
+func (s Stack) Push(i, j int) Stack {
+	return append(s, i, j)
+}
+
+func (s Stack) Pop() (Stack, int, int) {
+	l := len(s)
+	return s[:l-2], s[l-2], s[l-1]
+}
+
 
 
 type Wfc struct {
