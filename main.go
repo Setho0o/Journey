@@ -41,8 +41,7 @@ func main() {
 	ebiten.SetWindowTitle("~Journey~")
 	g := GameInit()
 
-	g.FillWater()
-
+  g.FillLand()
 	if err := ebiten.RunGame(g); err != nil {
 		log.Fatal(err)
 	}

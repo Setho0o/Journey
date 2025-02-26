@@ -81,5 +81,9 @@ func (g *Game) FillWater() {
 	}
 }
 func (g *Game) FillLand() {
-
+  for _, e := range g.m {
+		for _, c := range e {
+      c.id = a.LandM1
+		}
+	}
 }
