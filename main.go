@@ -5,9 +5,10 @@ import (
 	"log"
 	"os"
 
-	f "github.com/Setho0o/Journey/Finders"
-	gen "github.com/Setho0o/Journey/Generators"
 	a "github.com/Setho0o/Journey/assets"
+	f "github.com/Setho0o/Journey/finders"
+	gen "github.com/Setho0o/Journey/generators"
+	m "github.com/Setho0o/Journey/matrix"
 	u "github.com/Setho0o/Journey/utils"
 	"github.com/hajimehoshi/ebiten/v2"
 )
@@ -17,8 +18,9 @@ type Game struct {
 	rgba *image.RGBA // Not sure what to name this but we draw the pixels onto this before we write it to the screen
 	gen  gen.Generator
 	f    f.Finder
-	m    Matrix
+	m    m.Matrix
 	a    map[a.Id]*ebiten.Image
+  
 }
 
 func (g *Game) Update() error {
@@ -28,7 +30,6 @@ func (g *Game) Update() error {
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	g.s = screen
-
 	g.DrawMatrix()
 }
 
@@ -49,7 +50,7 @@ func main() {
 
 func GameInit() *Game {
 	return &Game{
-		m:    MatrixInit(),
+		m:    m.MatrixInit(),
 		a:    a.AssetInit(),
 		rgba: image.NewRGBA(image.Rect(0, 0, u.Lx, u.Ly)),
 	}

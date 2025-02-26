@@ -19,42 +19,44 @@ the colors your using incase we want to redo some of them.
 type Id int
 
 const (
+  Entropy = 10
+
 	Blank Id = iota
-	LandM1
+
+	LandM1 //Middle
 	LandM2
 	LandM3
 
 	GrassA
 
-	WaterM1
-	WaterM2
-	WaterM3
-
-	WaterTL1
+  WaterTL1 //Topleft
 	WaterTL2
 	WaterTL3
-	WaterTR1
+	WaterT1 //Top
+	WaterT2
+	WaterT3
+  WaterTR1 //TopRight
 	WaterTR2
 	WaterTR3
-	WaterBL1
+  WaterL1 //Left
+	WaterL2
+	WaterL3
+  WaterM1 //Middle
+	WaterM2
+	WaterM3
+	WaterR1 //Right
+	WaterR2
+	WaterR3
+  WaterBL1 //BottomLeft
 	WaterBL2
 	WaterBL3
-	WaterBR1
+	WaterB1 //Bottom
+	WaterB2
+	WaterB3
+	WaterBR1 //BottomRight
 	WaterBR2
 	WaterBR3
 
-	WaterT1
-	WaterT2
-	WaterT3
-	WaterB1
-	WaterB2
-	WaterB3
-	WaterL1
-	WaterL2
-	WaterL3
-	WaterR1
-	WaterR2
-	WaterR3
 
 	TreeA
 	TreeB
@@ -62,6 +64,7 @@ const (
 	BushA
 	BushB
 	BushC
+  
 )
 
 var (
@@ -74,7 +77,70 @@ var (
   LandHex = []string{
 		"30a430",
     "26ab26",
-	}
+	} 
+  all = []Id {
+	  LandM1, //Middle
+	  LandM2,
+	  LandM3,
+
+    WaterTL1, //Topleft
+	  WaterTL2,
+	  WaterTL3,
+	  WaterT1, //Top
+	  WaterT2,
+	  WaterT3,
+    WaterTR1, //TopRight
+	  WaterTR2,
+	  WaterTR3,
+    WaterL1, //Left
+	  WaterL2,
+	  WaterL3,
+    WaterM1, //Middle
+	  WaterM2,
+	  WaterM3,
+	  WaterR1, //Right
+	  WaterR2,
+	  WaterR3,
+    WaterBL1, //BottomLeft
+	  WaterBL2,
+	  WaterBL3,
+	  WaterB1, //Bottom
+	  WaterB2,
+	  WaterB3,
+	  WaterBR1, //BottomRight
+	  WaterBR2,
+	  WaterBR3,
+  }
+
+  Water = []Id {
+	  WaterTL1, //Topleft
+	  WaterTL2,
+	  WaterTL3,
+	  WaterT1, //Top
+	  WaterT2,
+	  WaterT3,
+    WaterTR1, //TopRight
+	  WaterTR2,
+	  WaterTR3, 
+    WaterL1, //Left
+	  WaterL2,
+	  WaterL3,
+    WaterM1, //Middle
+	  WaterM2,
+	  WaterM3,
+	  WaterR1, //Right
+	  WaterR2,
+	  WaterR3,
+    WaterBL1, //BottomLeft
+	  WaterBL2,
+	  WaterBL3,
+	  WaterB1, //Bottom
+	  WaterB2,
+	  WaterB3,
+	  WaterBR1, //BottomRight
+	  WaterBR2,
+	  WaterBR3,
+  }
 )
 
 func AssetInit() map[Id]*ebiten.Image {
@@ -139,4 +205,8 @@ func DecodePng(name string) *ebiten.Image {
 	}
 
 	return ebiten.NewImageFromImage(img)
+}
+
+func RandomAsset(r int) Id {
+  return all[r] 
 }
